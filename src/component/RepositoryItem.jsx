@@ -1,21 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import StyledText from "./StyledText";
+import { StyleSheet, View } from "react-native";
+import RepositoryStats from "./RepositoryStats";
+import theme from "../theme";
+import RepositoryItemHeader from "./RepositoryItemHeader";
 
 const RepositoryItem = (props) => {
   return (
     <View key={props.id} style={styles.container}>
-      <StyledText blue big bold>
-        id: {props.id}
-      </StyledText>
-      <StyledText blue>FullName: {props.fullName}</StyledText>
-      <StyledText blue>Description: {props.description}</StyledText>
-      <StyledText bold>Language: {props.language}</StyledText>
-      <StyledText blue>Stars: {props.forksCount}</StyledText>
-      <StyledText small>Forks: {props.stargazersCount}</StyledText>
-      <StyledText small>Review: {props.ratingAverage}</StyledText>
-      <StyledText small>Rating: {props.reviewCount}</StyledText>
-      <StyledText small>Url:{props.ownerAvatarUrl}</StyledText>
+      <RepositoryItemHeader {...props} />
+      <RepositoryStats {...props} />
     </View>
   );
 };
@@ -23,8 +16,21 @@ const RepositoryItem = (props) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 5,
-    paddingTop: 5,
+    paddingVertical: 5,
+  },
+  language: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
+    alignSelf: "flex-start",
+    marginVertical: 4,
+    borderRadius: 4,
+    overflow: "hidden",
+    padding: 2,
+  },
+  image: {
+    width: 48,
+    height: 48,
+    borderRadius: 4,
   },
 });
 
