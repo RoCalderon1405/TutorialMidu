@@ -4,15 +4,15 @@ import { Route, Routes } from "react-router-native";
 
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
+import Login from "../Pages/Login";
 
 const Main = () => {
   return (
     <View style={{ flex: 1 }}>
       <AppBar />
-      <Text>Rate Repository Application</Text>
       <Routes>
         <Route path="/" element={<RepositoryList />} />
-        <Route path="/signin" element={<Text>Hola</Text>} />
+        <Route path="/signin" element={<Login />} />
       </Routes>
     </View>
   );
