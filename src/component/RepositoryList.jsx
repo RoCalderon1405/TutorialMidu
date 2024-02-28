@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Text, FlatList } from "react-native";
 import RepositoryItem from "./RepositoryItem";
+import data from "../data/repositories";
 
 const RepositoryList = () => {
   const [repositories, setRepositories] = useState(null);
 
   const fetchData = async () => {
     try {
-      console.log("hola");
-    const response = await fetch("http://localhost:5000/api/repositories");
-    console.log("hola2");
-    console.log(response);
-    const json = await response.json();
-    setRepositories(json);
+      const response = await globalThis.fetch(
+        "http://192.168.1.67:5000/api/repositories"
+      );
+      const json = await response.json();
+      setRepositories(json);
     } catch (error) {
       console.error(error);
     }
